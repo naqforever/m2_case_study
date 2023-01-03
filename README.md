@@ -112,15 +112,15 @@ FuramaResort, sau đó trong mục src hãy tạo các package sau:
 
 models, views, controllers,utils, services,data,libs
 
-> **Task 1** (task này chỉ yêu cầu tạo menu chương trình
-> sử dụng các vòng lặp, không yêu cầu viết code các chức năng của chương
-> trình)
->
-> Tạo 1 class có tên **FuramaController** nằm trong package
-> **controllers** sau đó thực hiện yêu cầu sau:
+ **Task 1** (task này chỉ yêu cầu tạo menu chương trình
+ sử dụng các vòng lặp, không yêu cầu viết code các chức năng của chương
+ trình)
+
+ Tạo 1 class có tên **FuramaController** nằm trong package
+ **controllers** sau đó thực hiện yêu cầu sau:
 
 1.  Xây dựng menu chương trình với method **displayMainMenu()** để cho
-    > phép người dùng lựa chọn các chức năng trên menu. Gồm có:
+     phép người dùng lựa chọn các chức năng trên menu. Gồm có:
 
     1.  Employee Management
 
