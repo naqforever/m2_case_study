@@ -1,4 +1,4 @@
-package util;
+package m2_case_study.FuramaManager.util;
 
 import java.util.Scanner;
 

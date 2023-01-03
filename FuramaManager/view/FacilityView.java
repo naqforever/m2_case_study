@@ -1,6 +1,6 @@
-package view;
+package m2_case_study.FuramaManager.view;
 
-import util.CommonUtil;
+import m2_case_study.FuramaManager.util.CommonUtil;
 
 public class FacilityView {
     public static void show(){
