@@ -2,6 +2,8 @@ package m2_case_study.FuramaManager.model;
 
 import m2_case_study.FuramaManager.util.ConstantUtil.RentType;
 
+import java.util.Objects;
+
 public abstract class Facility {
     private String code;
     private String name;
@@ -68,6 +70,19 @@ public abstract class Facility {
 
     public void setRentType(RentType rentType) {
         this.rentType = rentType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Facility facility = (Facility) o;
+        return Objects.equals(code, facility.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
     }
 
     @Override

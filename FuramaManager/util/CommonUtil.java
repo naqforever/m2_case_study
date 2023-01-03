@@ -2,6 +2,7 @@ package m2_case_study.FuramaManager.util;
 
 import m2_case_study.FuramaManager.model.Person;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class CommonUtil {
@@ -27,5 +28,9 @@ public class CommonUtil {
         String email = CommonUtil.inputTo("Email");
         String address = CommonUtil.inputTo("Address");
         return new Person(fullName, birthday, ConstantUtil.Gender.valueOf(gender.toUpperCase()), phone, email, address);
+    }
+
+    public static DateTimeFormatter getDateFormat() {
+        return DateTimeFormatter.ofPattern("dd/MM/yyyy");
     }
 }

@@ -10,6 +10,7 @@ import m2_case_study.FuramaManager.util.ConstantUtil.RoomType;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class FacilityServiceImpl implements FacilityService{
     private static Map<Facility, Integer> facilitys = new LinkedHashMap<>();
@@ -33,6 +34,12 @@ public class FacilityServiceImpl implements FacilityService{
 
     @Override
     public void update(Facility facility) {
+        for (Map.Entry<Facility, Integer> f : facilitys.entrySet()){
+            if(f.getKey().equals(facility)){
+                facilitys.put(facility, f.getValue() + 1);
+                break;
+            }
+        }
     }
 
     @Override
@@ -43,5 +50,10 @@ public class FacilityServiceImpl implements FacilityService{
     @Override
     public Map<Facility, Integer> findAllMaintenance() {
         return facilitys;
+    }
+
+    @Override
+    public Optional<Facility> get(String code) {
+        return findAll().stream().filter(e -> e.getCode().equals(code)).findFirst();
     }
 }
