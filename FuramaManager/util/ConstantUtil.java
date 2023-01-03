@@ -49,4 +49,10 @@ public interface ConstantUtil {
         FEMALE,
         UNKNOWN
     }
+
+    interface PROMOTION{
+        Integer TEN_PERCENT = 10;
+        Integer TWENTY_PERCENT = 20;
+        Integer FIFTY_PERCENT = 50;
+    }
 }

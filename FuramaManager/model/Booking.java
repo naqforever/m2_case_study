@@ -1,6 +1,7 @@
 package m2_case_study.FuramaManager.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Booking implements Comparable<Booking>{
     private String code;
@@ -70,6 +71,19 @@ public class Booking implements Comparable<Booking>{
     public int compareTo(Booking o) {
         int tmp = o.getStartDate().compareTo(getStartDate());
         return tmp != 0 ? tmp : o.getEndDate().compareTo(getEndDate());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(customerCode, booking.customerCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customerCode);
     }
 
     @Override
