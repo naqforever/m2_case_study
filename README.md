@@ -236,8 +236,8 @@ nghĩa trong Services abstract class*.
 (Học viên có thể hoàn thành task này sau bài Abstract class và
 interface)
 
-> **Task 3** Xây dựng chức năng 1. Employee Management
-> cho menu chính của chương trình.
+ **Task 3** Xây dựng chức năng 1. Employee Management
+ cho menu chính của chương trình.
 
 ***Yêu cầu** sử dụng ArrayList, static property, static
 block*
