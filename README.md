@@ -256,8 +256,8 @@ block*
 >
 > (học viên có thể hoàn thành task này sau bài Java List)
 >
-> **Task 4** Xây dựng chức năng 2. Customer Management
-> cho menu chính của chương trình.
+ **Task 4** Xây dựng chức năng 2. Customer Management
+ cho menu chính của chương trình.
 
 ***Yêu cầu** sử dụng LinkedList, static property, static
 block*

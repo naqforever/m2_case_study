@@ -11,4 +11,9 @@ public class CommonUtil {
         System.out.print("Enter your choice:");
         return CommonUtil.getScanner().nextInt();
     }
+
+    public static String inputTo(String field){
+        System.out.print(field+ ": ");
+        return getScanner().nextLine();
+    }
 }
