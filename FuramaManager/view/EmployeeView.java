@@ -2,6 +2,7 @@ package m2_case_study.FuramaManager.view;
 
 import m2_case_study.FuramaManager.controller.EmployeeController;
 import m2_case_study.FuramaManager.model.Employee;
+import m2_case_study.FuramaManager.model.Person;
 import m2_case_study.FuramaManager.util.CommonUtil;
 import m2_case_study.FuramaManager.util.ConstantUtil.Gender;
 import m2_case_study.FuramaManager.util.ConstantUtil.Degree;
@@ -41,15 +42,11 @@ public class EmployeeView {
     }
 
     private static  Employee input() {
-        String fullName = CommonUtil.inputTo("FullName");
-        String birthday = CommonUtil.inputTo("Birthday");
-        String gender = CommonUtil.inputTo("Gender");
-        String phone = CommonUtil.inputTo("Phone");
-        String email = CommonUtil.inputTo("Email");
-        String address = CommonUtil.inputTo("Address");
+        Person person = CommonUtil.inputPerson();
         String degree = CommonUtil.inputTo("Degree");
         String position = CommonUtil.inputTo("Position");
         double salary = Double.parseDouble(CommonUtil.inputTo("Salary"));
-        return new Employee("", fullName, birthday, Gender.valueOf(gender.toUpperCase()), phone, email, address, Degree.valueOf(degree.toUpperCase()), Position.valueOf(position.toUpperCase()), salary);
+
+        return new Employee(person.getFullName(), person.getBirthday(), person.getGender(), person.getPhone(), person.getEmail(), person.getAddress(), Degree.valueOf(degree.toUpperCase()), Position.valueOf(position.toUpperCase()), salary);
     }
 }

@@ -28,7 +28,7 @@ Xây dựng hệ thống quản lý khu nghỉ dưỡng Furama tại thành ph�
 Hệ thống được mô tả như sau:
 
 1.  Khu nghỉ dưỡng Furama sẽ cung cấp các loại dịch vụ cho thuê bao gồm
-    > Villa, House, Room.
+     Villa, House, Room.
 
 Các loại dịch vụ này sẽ bao có các thông tin: Tên dịch vụ, Diện tích sử
 dụng, Chi phí thuê, Số lượng người tối đa, Kiểu thuê (bao gồm thuê theo
@@ -41,8 +41,8 @@ năm, tháng, ngày, giờ.
 -   Riêng loại Room sẽ có thêm thông tin: Dịch vụ miễn phí đi kèm.
 
 2.  Hệ thống quản lý còn cho phép quản lý thêm thông tin của Employee.
-    > Thông tin Employee sẽ bao gồm: Mã nhân viên, Họ tên, Ngày sinh,
-    > Giới tính, Số CMND, Số Điện Thoại, Email, Trình độ, Vị trí, lương
+     Thông tin Employee sẽ bao gồm: Mã nhân viên, Họ tên, Ngày sinh,
+     Giới tính, Số CMND, Số Điện Thoại, Email, Trình độ, Vị trí, lương
 
 Trình độ sẽ lưu trữ các thông tin: Trung cấp, Cao đẳng, Đại học và sau
 đại học
@@ -264,18 +264,18 @@ block*
 
 *Gợi ý:*
 
-> 1\. Trong class CustomerServiceImpl sử dụng LinkedList, static
-> property, static block để lưu trữ và khởi tạo dữ liệu. Viết các chức
-> năng xử lý business cho phần hiển thị danh sách khách hàng, thêm mới
-> khách hàng, chỉnh sửa thông tin cho khách hàng.
->
-> 2\. Tạo đối tượng CustomerServiceImpl trong FuramaController
->
-> 3\. Sử dụng các method business đã viết trong CustomerServiceImpl để
-> hoàn thành chức năng Customer Management
->
-> (học viên có thể hoàn thành task này sau bài Java List)
->
+ 1\. Trong class CustomerServiceImpl sử dụng LinkedList, static
+ property, static block để lưu trữ và khởi tạo dữ liệu. Viết các chức
+ năng xử lý business cho phần hiển thị danh sách khách hàng, thêm mới
+ khách hàng, chỉnh sửa thông tin cho khách hàng.
+
+ 2\. Tạo đối tượng CustomerServiceImpl trong FuramaController
+
+ 3\. Sử dụng các method business đã viết trong CustomerServiceImpl để
+ hoàn thành chức năng Customer Management
+
+ (học viên có thể hoàn thành task này sau bài Java List)
+
  **Task 5** Xây dựng chức năng 3. Facility Management
  cho menu chính của chương trình.
 
@@ -284,18 +284,17 @@ static block, override equals(), hashCode()*
 
 *Gợi ý:*
 
-> 1\. Trong class FacilityServiceImpl sử dụng LinkedHashMap *(sử dụng
-> key là service, value là số lần đã sử dụng)*, static property, static
-> block để lưu trữ và khởi tạo dữ liệu. Viết các chức năng xử lý
-> business cho phần hiển thị danh sách facility, thêm mới facility, hiển
-> thị danh sách facility cần bảo trì.
->
-> (mỗi khi khách hàng booking từ chức năng Booking thành công thì số lần
-> sử dụng sẽ tăng 1, hiện tại có thể sử dụng dữ liệu cứng để test chức
-> năng)
->
-> 2\. Lưu ý khi người dùng chọn thêm mới dịch vụ sẽ hiển thị menu con
-> cho phép người dùng chọn loại dịch vụ muốn thêm:
+ 1\. Trong class FacilityServiceImpl sử dụng LinkedHashMap *(sử dụng
+ key là service, value là số lần đã sử dụng)*, static property, static
+ block để lưu trữ và khởi tạo dữ liệu. Viết các chức năng xử lý
+ business cho phần hiển thị danh sách facility, thêm mới facility, hiển
+ thị danh sách facility cần bảo trì.
+ (mỗi khi khách hàng booking từ chức năng Booking thành công thì số lần
+ sử dụng sẽ tăng 1, hiện tại có thể sử dụng dữ liệu cứng để test chức
+ năng)
+
+ 2\. Lưu ý khi người dùng chọn thêm mới dịch vụ sẽ hiển thị menu con
+ cho phép người dùng chọn loại dịch vụ muốn thêm:
 
 1.  Add New Villa
 
@@ -305,82 +304,82 @@ static block, override equals(), hashCode()*
 
 4.  Back to menu
 
-> 3\. Tạo đối tượng FacilityServiceImpl trong FuramaController
->
-> 4\. Sử dụng các method business đã viết FacilityServiceImpl trong để
-> hoàn thành chức năng Facility Management
->
-> (học viên có thể hoàn thành task này sau bài Java Map)
->
+ 3\. Tạo đối tượng FacilityServiceImpl trong FuramaController
+
+ 4\. Sử dụng các method business đã viết FacilityServiceImpl trong để
+ hoàn thành chức năng Facility Management
+
+ (học viên có thể hoàn thành task này sau bài Java Map)
+
  **Task 6** Xây dựng chức năng 4. Booking Management cho
-> menu chính của chương trình.
+ menu chính của chương trình.
 
 ***Yêu cầu** Sử dụng static property, static block,
 comparable, comparator, TreeSet, Queue để thông tin booking không bị
 trùng lặp và hiển thị danh sách theo thứ tự ngày bắt đầu gần nhất, nếu
 ngày bắt đầu trùng nhau thì sắp xếp theo ngày kết thúc gần nhất*
 
-> 1\. Khi thực hiện booking phải hiển thị danh sách khách hàng cho nhân
-> viên chọn mã khách hàng, hiển thị danh sách dịch vụ cho nhân viên chọn
-> mã dịch vụ.
->
-> 2\. Danh sách booking hiển thị phải được sắp xếp theo thứ tự ngày
-> tháng đặt phòng gần nhất, nếu trùng nhau thì sắp xếp theo ngày trả
-> phòng
->
-> (update chức năng tính số lần sử dụng cho task 5 dựa vào danh sách
-> booking trong tháng hiện tại, vì cuối tháng luôn luôn có bảo trì bảo
-> dưỡng nên số lần sử dụng dụng sẽ được tính từ đầu tháng cho đến thời
-> điểm hiện tại)
->
-> 3\. Khi tạo hợp đồng chỉ cho phép tạo hợp đồng theo thứ tự ngày bắt
-> đầu booking sớm nhất được tạo hợp đồng trước, booking trễ hơn phải tạo
-> hợp đồng sau.
->
-> *Gợi ý:*
->
-> 1\. Trong class BookingServiceImpl sử dụng TreeSet, static property,
-> static block để lưu trữ và khởi tạo dữ liệu. Viết các chức năng xử lý
-> business cho phần hiển thị danh sách booking, thêm mới booking (Tạo
-> class Booking Comparator implement Comparator để xử lý phần sắp xếp,
-> override method equals(), hashCode() để xử lý phần không trùng lặp).
->
-> 2\. Phần tạo hợp đồng chuyển danh sách booking từ Set 🡪 Queue để xử lý
-> booking theo thứ tự.
->
-> 3\. Tạo đối tượng BookingServiceImpl trong FuramaController
->
-> 4\. Sử dụng các method business đã viết trong BookingServiceImpl để
-> hoàn thành chức năng Booking Managerment
->
+ 1\. Khi thực hiện booking phải hiển thị danh sách khách hàng cho nhân
+ viên chọn mã khách hàng, hiển thị danh sách dịch vụ cho nhân viên chọn
+ mã dịch vụ.
+
+ 2\. Danh sách booking hiển thị phải được sắp xếp theo thứ tự ngày
+ tháng đặt phòng gần nhất, nếu trùng nhau thì sắp xếp theo ngày trả
+ phòng
+
+ (update chức năng tính số lần sử dụng cho task 5 dựa vào danh sách
+ booking trong tháng hiện tại, vì cuối tháng luôn luôn có bảo trì bảo
+ dưỡng nên số lần sử dụng dụng sẽ được tính từ đầu tháng cho đến thời
+ điểm hiện tại)
+
+ 3\. Khi tạo hợp đồng chỉ cho phép tạo hợp đồng theo thứ tự ngày bắt
+ đầu booking sớm nhất được tạo hợp đồng trước, booking trễ hơn phải tạo
+ hợp đồng sau.
+
+ *Gợi ý:*
+
+ 1\. Trong class BookingServiceImpl sử dụng TreeSet, static property,
+ static block để lưu trữ và khởi tạo dữ liệu. Viết các chức năng xử lý
+ business cho phần hiển thị danh sách booking, thêm mới booking (Tạo
+ class Booking Comparator implement Comparator để xử lý phần sắp xếp,
+ override method equals(), hashCode() để xử lý phần không trùng lặp).
+
+ 2\. Phần tạo hợp đồng chuyển danh sách booking từ Set 🡪 Queue để xử lý
+ booking theo thứ tự.
+
+ 3\. Tạo đối tượng BookingServiceImpl trong FuramaController
+
+ 4\. Sử dụng các method business đã viết trong BookingServiceImpl để
+ hoàn thành chức năng Booking Managerment
+
  **Task 7** Xây dựng chức năng 5. Promotion Management
-> cho menu chính của chương trình.
+ cho menu chính của chương trình.
 
 ***Yêu cầu** sử dụng TreeSet, Stack, static property,
 static block*
 
 *Gợi ý:*
 
-> 1\. Trong class PromotionServiceImpl sử dụng TreeSet, static property,
-> static block để lưu trữ và khởi tạo dữ liệu.
->
-> 2\. Với chức năng hiển thị danh sách khách hàng đã sử dụng dịch vụ
-> theo năm: dữ liệu được lấy từ danh sách booking, năm sử dụng dịch vụ
-> cho phép người dùng nhập vào.
->
-> 3\. Với chức năng tặng voucher khuyến mãi. Cho phép người dùng nhập
-> vào số lượng voucher khuyến mãi 10%, số lượng voucher khuyến mãi 20%,
-> số lượng voucher khuyến mãi 50%, hệ thống sẽ lấy danh sách các khách
-> hàng đã booking trong tháng hiện tại sắp xếp theo thứ tự booking và
-> đẩy vào Stack (số lượng khách hàng = tổng số lượng voucher) sau đó
-> tiến hành hiển thị danh sách khách hàng sẽ tặng voucher (các khách
-> hàng đặt theo thứ tự muộn nhất sẽ nhận 10%, hết 10% mới sử dụng 20%,
-> hết 20% mới được sử dụng 50%)
->
-> 2\. Tạo đối tượng PromotionServiceImpl trong FuramaController
->
-> 3\. Sử dụng các method business đã viết trong PromotionServiceImpl để
-> hoàn thành chức năng Promotion Management
+ 1\. Trong class PromotionServiceImpl sử dụng TreeSet, static property,
+ static block để lưu trữ và khởi tạo dữ liệu.
+
+ 2\. Với chức năng hiển thị danh sách khách hàng đã sử dụng dịch vụ
+ theo năm: dữ liệu được lấy từ danh sách booking, năm sử dụng dịch vụ
+ cho phép người dùng nhập vào.
+
+ 3\. Với chức năng tặng voucher khuyến mãi. Cho phép người dùng nhập
+ vào số lượng voucher khuyến mãi 10%, số lượng voucher khuyến mãi 20%,
+ số lượng voucher khuyến mãi 50%, hệ thống sẽ lấy danh sách các khách
+ hàng đã booking trong tháng hiện tại sắp xếp theo thứ tự booking và
+ đẩy vào Stack (số lượng khách hàng = tổng số lượng voucher) sau đó
+ tiến hành hiển thị danh sách khách hàng sẽ tặng voucher (các khách
+ hàng đặt theo thứ tự muộn nhất sẽ nhận 10%, hết 10% mới sử dụng 20%,
+ hết 20% mới được sử dụng 50%)
+
+ 2\. Tạo đối tượng PromotionServiceImpl trong FuramaController
+
+ 3\. Sử dụng các method business đã viết trong PromotionServiceImpl để
+ hoàn thành chức năng Promotion Management
 
 **Task 8** Xử lý exception cho hệ thống, không để hệ
 thống bị dừng đột ngột.

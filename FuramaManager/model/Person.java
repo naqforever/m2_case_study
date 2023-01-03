@@ -2,6 +2,8 @@ package m2_case_study.FuramaManager.model;
 
 import m2_case_study.FuramaManager.util.ConstantUtil.Gender;
 
+import java.util.Objects;
+
 public class Person {
     private String code;
     private String fullName;
@@ -12,6 +14,15 @@ public class Person {
     private String address;
 
     public Person() {
+    }
+
+    public Person(String fullName, String birthday, Gender gender, String phone, String email, String address) {
+        this.fullName = fullName;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
     }
 
     public Person(String code, String fullName, String birthday, Gender gender, String phone, String email, String address) {
@@ -78,6 +89,19 @@ public class Person {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(code, person.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
     }
 
     @Override

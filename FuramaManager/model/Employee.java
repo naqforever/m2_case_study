@@ -15,6 +15,13 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
+    public Employee(String fullName, String birthday, ConstantUtil.Gender gender, String phone, String email, String address, Degree degree, Position position, double salary) {
+        super(fullName, birthday, gender, phone, email, address);
+        this.degree = degree;
+        this.position = position;
+        this.salary = salary;
+    }
+
     public Employee(String code, String fullName, String birthday, ConstantUtil.Gender gender, String phone, String email, String address, Degree degree, Position position, double salary) {
         super(code, fullName, birthday, gender, phone, email, address);
         this.degree = degree;
@@ -44,12 +51,6 @@ public class Employee extends Person {
 
     public void setSalary(double salary) {
         this.salary = salary;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        String code = ((Employee) obj).getCode();
-        return getCode().equalsIgnoreCase(code);
     }
 
     @Override
