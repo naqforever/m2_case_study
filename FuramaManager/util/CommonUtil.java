@@ -4,10 +4,12 @@ import m2_case_study.FuramaManager.model.Person;
 import m2_case_study.FuramaManager.util.ConstantUtil.Gender;
 import org.junit.platform.commons.util.StringUtils;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class CommonUtil {
+    //region public methods
     public static Scanner getScanner() {
         return new Scanner(System.in);
     }
@@ -59,12 +61,18 @@ public class CommonUtil {
     }
 
     public static Person inputPerson() {
-        String fullName = CommonUtil.inputWithOutEmpty("FullName");
+        String fullName = inputWithOutEmpty("FullName");
+
         String birthday = CommonUtil.inputWithOutEmpty("Birthday");
-        Gender gender = CommonUtil.inputToEnum(Gender.class, "Gender");
-        String phone = CommonUtil.inputWithOutEmpty("Phone");
-        String email = CommonUtil.inputWithOutEmpty("Email");
-        String address = CommonUtil.inputWithOutEmpty("Address");
+        while (!Validation.dayOfBirth(birthday)){
+            System.out.println("Invalid format. Please input again");
+            birthday = inputWithOutEmpty("Birthday");
+        }
+
+        Gender gender = inputToEnum(Gender.class, "Gender");
+        String phone = inputWithOutEmpty("Phone");
+        String email = inputWithOutEmpty("Email");
+        String address = inputWithOutEmpty("Address");
         return new Person(fullName, birthday, gender, phone, email, address);
     }
 
@@ -88,6 +96,18 @@ public class CommonUtil {
         return DateTimeFormatter.ofPattern("dd/MM/yyyy");
     }
 
+    public static boolean isDate(String date){
+        try {
+            LocalDate.parse(date, getDateFormat());
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+    //endregion
+
+    //region private methods
     private static boolean isDoubleNumeric(String val){
         if(val == null){
             return false;
@@ -128,5 +148,6 @@ public class CommonUtil {
 
         return result;
     }
+    //endregion
 
 }

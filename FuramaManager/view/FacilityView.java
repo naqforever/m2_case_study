@@ -8,8 +8,7 @@ import m2_case_study.FuramaManager.util.CommonUtil;
 import m2_case_study.FuramaManager.util.ConstantUtil.RentType;
 import m2_case_study.FuramaManager.util.ConstantUtil.RoomType;
 import m2_case_study.FuramaManager.controller.FacilityController;
-
-import java.util.Map;
+import m2_case_study.FuramaManager.util.Validation;
 
 public class FacilityView {
     private static FacilityController facilityController = new FacilityController();
@@ -46,12 +45,54 @@ public class FacilityView {
             show();
         }
         else{
+
             String code = CommonUtil.inputWithOutEmpty("Code");
+//            if(choice == 1){
+//                while (!Validation.isVilla(code)){
+//                    System.out.printf("Invalid format. Please input again\n");
+//                    code = CommonUtil.inputWithOutEmpty("Code");
+//                }
+//            }
+//            else if(choice == 2){
+//                while (!Validation.isHouse(code)){
+//                    System.out.printf("Invalid format. Please input again\n");
+//                    code = CommonUtil.inputWithOutEmpty("Code");
+//                }
+//            }
+//            else {
+//                while (!Validation.isRoom(code)){
+//                    System.out.printf("Invalid format. Please input again\n");
+//                    code = CommonUtil.inputWithOutEmpty("Code");
+//                }
+//            }
+
+
             String name = CommonUtil.inputWithOutEmpty("Name");
+            while (!Validation.isServiceName(name)){
+                System.out.println("Invalid format. Please input again");
+                name = CommonUtil.inputWithOutEmpty("Name");
+            }
+
             double areaUsed = Double.parseDouble(CommonUtil.inputWithOutEmpty("Area Used"));
+            while (!Validation.checkArea(areaUsed)){
+                System.out.println("Area Used have to greater than 30 m2. Please input again");
+                areaUsed = CommonUtil.inputToDouble("Area Used");
+            }
+
             double price =  Double.parseDouble(CommonUtil.inputWithOutEmpty("Price"));
+            while (!Validation.checkPrice(price)){
+                System.out.println("Price have to greater than 0. Please input again");
+                price = CommonUtil.inputToDouble("Price");
+            }
+
+
             int maxPeople = CommonUtil.inputToInteger("Max People");
-            String rentType = CommonUtil.inputWithOutEmpty("Rent Type");
+            while (!Validation.checkMaxPeople(maxPeople)){
+                System.out.println("Max people have to from 0 to 20. Please input again");
+                maxPeople = CommonUtil.inputToInteger("Max People");
+            }
+
+            RentType rentType =  CommonUtil.inputToEnum(RentType.class, "Rent Type");
 
             Facility facility = null;
             RoomType roomType;
@@ -60,18 +101,29 @@ public class FacilityView {
             switch (choice) {
                 case 1 -> {
                     roomType = CommonUtil.inputToEnum(RoomType.class , "Room Type");
+
                     double areaPool =  CommonUtil.inputToDouble("Area Pool");
+                    while (!Validation.checkArea(areaPool)){
+                        System.out.println("Area Pool have to greater than 30 m2. Please input again");
+                        areaPool = CommonUtil.inputToDouble("Area Pool");
+                    }
+
                     numberOfFloor = CommonUtil.inputToInteger("Number Of Floor");
-                    facility = new Villa(code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()), roomType, areaPool, numberOfFloor);
+                    while (!Validation.numberOfFloor(numberOfFloor)){
+                        System.out.println("Number of floor have to greater than 0. Please input again");
+                        numberOfFloor = CommonUtil.inputToInteger("Number Of Floor");
+                    }
+
+                    facility = new Villa(code, name, areaUsed, price, maxPeople, rentType, roomType, areaPool, numberOfFloor);
                 }
                 case 2 -> {
                     roomType = CommonUtil.inputToEnum(RoomType.class , "Room Type");
                     numberOfFloor = CommonUtil.inputToInteger("Number Of Floor");
-                    facility = new House( code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()),  roomType, numberOfFloor);
+                    facility = new House( code, name, areaUsed, price, maxPeople, rentType,  roomType, numberOfFloor);
                 }
                 case 3 -> {
                     String freeAttachService = CommonUtil.inputWithOutEmpty("Free Attach Service");
-                    facility = new Room( code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()), freeAttachService);
+                    facility = new Room( code, name, areaUsed, price, maxPeople, rentType, freeAttachService);
                 }
             }
 

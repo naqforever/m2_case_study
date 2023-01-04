@@ -21,14 +21,14 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void create(Employee employee) {
         employees.add(employee);
-        fileHelper.write(FilePath.Employee, employees, false);
+        fileHelper.write(FilePath.EMPLOYEE, employees, false);
     }
 
     @Override
     public void update(Employee employee) {
         int index = employees.indexOf(employee);
         employees.set(index, employee);
-        fileHelper.write(FilePath.Employee, employees, false);
+        fileHelper.write(FilePath.EMPLOYEE, employees, false);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     private static List<Employee> toEmployees(){
         List<Employee> result = new ArrayList<>();
-        List<String> lines = fileHelper.read(FilePath.Employee);
+        List<String> lines = fileHelper.read(FilePath.EMPLOYEE);
 
         for(String line : lines){
             String[] tmp = line.split(",");

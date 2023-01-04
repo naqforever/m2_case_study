@@ -57,8 +57,15 @@ public interface ConstantUtil {
     }
 
     interface FilePath{
-        String Employee = "src/m2_case_study/FuramaManager/data/employee.csv";
-        String Customer = "src/m2_case_study/FuramaManager/data/customer.csv";
-        String Facility = "src/m2_case_study/FuramaManager/data/facility.csv";
+        String EMPLOYEE = "src/m2_case_study/FuramaManager/data/employee.csv";
+        String CUSTOMER = "src/m2_case_study/FuramaManager/data/customer.csv";
+        String FACILITY = "src/m2_case_study/FuramaManager/data/facility.csv";
+    }
+
+    interface Regex{
+        String VILLA = "SVVL-\\d{4}";
+        String HOUSE = "SVHO-\\d{4}";
+        String ROOM = "SVRO-\\d{4}";
+        String SERVICE_NAME = "[A-Z][a-z]+";
     }
 }
