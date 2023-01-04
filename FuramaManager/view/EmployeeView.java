@@ -7,6 +7,8 @@ import m2_case_study.FuramaManager.util.CommonUtil;
 import m2_case_study.FuramaManager.util.ConstantUtil.Degree;
 import m2_case_study.FuramaManager.util.ConstantUtil.Position;
 
+import java.util.List;
+
 public class EmployeeView {
     private static EmployeeController employeeController = new EmployeeController();
 
@@ -20,7 +22,7 @@ public class EmployeeView {
         int choice= CommonUtil.getChoice(1,4);
 
         switch (choice) {
-            case 1 -> employeeController.findAll().forEach(System.out::println);
+            case 1 -> display(employeeController.findAll());
             case 2 -> {
                 String code = CommonUtil.inputWithOutEmpty("Code");
                 Employee newEmployee = input();
@@ -46,6 +48,25 @@ public class EmployeeView {
         Position position = CommonUtil.inputToEnum(Position.class, "Position");
         double salary = CommonUtil.inputToDouble("Salary");
 
-        return new Employee(person.getFullName(), person.getBirthday(), person.getGender(), person.getPhone(), person.getEmail(), person.getAddress(), degree, position, salary);
+        return new Employee(person.getFullName(), person.getBirthday(), person.getGender(), person.getPhone()
+                , person.getEmail(), person.getAddress(), degree, position, salary);
+    }
+
+    private static void display(List<Employee> employees){
+        if(employees.size() > 0){
+            System.out.printf("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s %20s %n", "CODE", "FULL NAME"
+                    , "BIRTHDAY", "GENDER", "PHONE", "EMAIL", "ADDRESS", "DEGREE", "POSITION", "SALARY");
+            System.out.println("----------------------------------------------------------------------------------------" +
+                    "---------------------------------------------------------------------------------------------------------------------------");
+
+            for(Employee e: employees){
+                System.out.printf("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s %20s %n"
+                        , e.getCode(), e.getFullName(), e.getBirthday(), e.getGender().name(), e.getPhone(), e.getEmail()
+                        , e.getAddress(), e.getDegree().name(), e.getPosition().name(), e.getSalary());
+            }
+        }
+        else {
+            System.out.println("Empty list...");
+        }
     }
 }

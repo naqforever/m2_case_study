@@ -1,6 +1,6 @@
 package m2_case_study.FuramaManager.model;
 
-import m2_case_study.FuramaManager.util.ConstantUtil;
+import m2_case_study.FuramaManager.util.ConstantUtil.Gender;
 import m2_case_study.FuramaManager.util.ConstantUtil.Degree;
 import m2_case_study.FuramaManager.util.ConstantUtil.Position;
 
@@ -15,14 +15,14 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public Employee(String fullName, String birthday, ConstantUtil.Gender gender, String phone, String email, String address, Degree degree, Position position, double salary) {
+    public Employee(String fullName, String birthday, Gender gender, String phone, String email, String address, Degree degree, Position position, double salary) {
         super(fullName, birthday, gender, phone, email, address);
         this.degree = degree;
         this.position = position;
         this.salary = salary;
     }
 
-    public Employee(String code, String fullName, String birthday, ConstantUtil.Gender gender, String phone, String email, String address, Degree degree, Position position, double salary) {
+    public Employee(String code, String fullName, String birthday, Gender gender, String phone, String email, String address, Degree degree, Position position, double salary) {
         super(code, fullName, birthday, gender, phone, email, address);
         this.degree = degree;
         this.position = position;
@@ -55,10 +55,7 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "degree=" + degree +
-                ", position=" + position +
-                ", salary=" + salary +
-                "} " + super.toString();
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s"
+                , getCode(), getFullName(), getBirthday(), getGender().name(), getPhone(), getEmail(), getAddress(), getDegree().name(), getPosition().name(), getSalary());
     }
 }

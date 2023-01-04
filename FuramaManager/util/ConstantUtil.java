@@ -55,4 +55,10 @@ public interface ConstantUtil {
         Integer TWENTY_PERCENT = 20;
         Integer FIFTY_PERCENT = 50;
     }
+
+    interface FilePath{
+        String Employee = "src/m2_case_study/FuramaManager/data/employee.csv";
+        String Customer = "src/m2_case_study/FuramaManager/data/customer.csv";
+        String Facility = "src/m2_case_study/FuramaManager/data/facility.csv";
+    }
 }
