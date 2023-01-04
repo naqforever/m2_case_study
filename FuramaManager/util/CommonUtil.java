@@ -59,12 +59,12 @@ public class CommonUtil {
     }
 
     public static Person inputPerson() {
-        String fullName = CommonUtil.inputWithOutEmpty("FullName");
-        String birthday = CommonUtil.inputWithOutEmpty("Birthday");
-        Gender gender = CommonUtil.inputToEnum(Gender.class, "Gender");
-        String phone = CommonUtil.inputWithOutEmpty("Phone");
-        String email = CommonUtil.inputWithOutEmpty("Email");
-        String address = CommonUtil.inputWithOutEmpty("Address");
+        String fullName = inputWithOutEmpty("FullName");
+        String birthday = inputWithOutEmpty("Birthday");
+        Gender gender = inputToEnum(Gender.class, "Gender");
+        String phone = inputWithOutEmpty("Phone");
+        String email = inputWithOutEmpty("Email");
+        String address = inputWithOutEmpty("Address");
         return new Person(fullName, birthday, gender, phone, email, address);
     }
 

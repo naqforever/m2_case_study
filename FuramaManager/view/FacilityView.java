@@ -51,7 +51,7 @@ public class FacilityView {
             double areaUsed = Double.parseDouble(CommonUtil.inputWithOutEmpty("Area Used"));
             double price =  Double.parseDouble(CommonUtil.inputWithOutEmpty("Price"));
             int maxPeople = CommonUtil.inputToInteger("Max People");
-            String rentType = CommonUtil.inputWithOutEmpty("Rent Type");
+            RentType rentType = CommonUtil.inputToEnum(RentType.class, "Rent Type");
 
             Facility facility = null;
             RoomType roomType;
@@ -62,16 +62,16 @@ public class FacilityView {
                     roomType = CommonUtil.inputToEnum(RoomType.class , "Room Type");
                     double areaPool =  CommonUtil.inputToDouble("Area Pool");
                     numberOfFloor = CommonUtil.inputToInteger("Number Of Floor");
-                    facility = new Villa(code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()), roomType, areaPool, numberOfFloor);
+                    facility = new Villa(code, name, areaUsed, price, maxPeople, rentType, roomType, areaPool, numberOfFloor);
                 }
                 case 2 -> {
                     roomType = CommonUtil.inputToEnum(RoomType.class , "Room Type");
                     numberOfFloor = CommonUtil.inputToInteger("Number Of Floor");
-                    facility = new House( code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()),  roomType, numberOfFloor);
+                    facility = new House( code, name, areaUsed, price, maxPeople, rentType, roomType, numberOfFloor);
                 }
                 case 3 -> {
                     String freeAttachService = CommonUtil.inputWithOutEmpty("Free Attach Service");
-                    facility = new Room( code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()), freeAttachService);
+                    facility = new Room( code, name, areaUsed, price, maxPeople, rentType, freeAttachService);
                 }
             }
 
