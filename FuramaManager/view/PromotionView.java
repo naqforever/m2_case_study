@@ -15,17 +15,17 @@ public class PromotionView {
                 "2. Display list customers get voucher\n"+
                 "3. Return main menu");
 
-        int choice= CommonUtil.getChoice();
+        int choice= CommonUtil.getChoice(1,3);
 
         switch (choice) {
             case 1 -> {
-                int year = Integer.parseInt(CommonUtil.inputTo("Input year to filter"));
+                int year = Integer.parseInt(CommonUtil.inputWithOutEmpty("Input year to filter"));
                 promotionController.getCustomerUseService(year).forEach(System.out::println);
             }
             case 2 -> {
-                int amountOfTenPercent = Integer.parseInt(CommonUtil.inputTo("Input amount 10% discount voucher"));
-                int amountOfTwentyPercent = Integer.parseInt(CommonUtil.inputTo("Input amount 20% discount voucher"));
-                int amountOfFiftyPercent = Integer.parseInt(CommonUtil.inputTo("Input amount 50% discount voucher"));
+                int amountOfTenPercent = CommonUtil.inputToInteger("Input amount 10% discount voucher");
+                int amountOfTwentyPercent = CommonUtil.inputToInteger("Input amount 20% discount voucher");
+                int amountOfFiftyPercent = CommonUtil.inputToInteger("Input amount 50% discount voucher");
                 Map<Customer, Integer> promotions = promotionController.getCustomerVoucher(amountOfTenPercent, amountOfTwentyPercent, amountOfFiftyPercent);
 
                 promotions.entrySet().forEach(e -> System.out.println(e.getKey() + ". Voucher:" + e.getValue() + "%"));

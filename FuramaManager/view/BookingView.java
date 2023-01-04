@@ -27,24 +27,24 @@ public class BookingView {
                 "5. Edit contracts\n" +
                 "6. Return main menu");
 
-        int choice = CommonUtil.getChoice();
+        int choice = CommonUtil.getChoice(1,7);
 
         switch (choice) {
             case 1 -> {
                 System.out.println("----- List customer ---");
                 customerController.findAll().forEach(System.out::println);
-                String customerCode = CommonUtil.inputTo("Enter customer code to booking");
+                String customerCode = CommonUtil.inputWithOutEmpty("Enter customer code to booking");
 
                 System.out.println("----- List service ---");
                 facilityController.findAll().forEach(System.out::println);
-                String serviceCode = CommonUtil.inputTo("Enter service code to booking");
+                String serviceCode = CommonUtil.inputWithOutEmpty("Enter service code to booking");
 
-                String bookingCode = CommonUtil.inputTo("Booking Code");
+                String bookingCode = CommonUtil.inputWithOutEmpty("Booking Code");
 
-                String stStartDate = CommonUtil.inputTo("Start Date");
+                String stStartDate = CommonUtil.inputWithOutEmpty("Start Date");
                 LocalDate startDate = LocalDate.parse(stStartDate, CommonUtil.getDateFormat());
 
-                String stEndDate = CommonUtil.inputTo("End Date");
+                String stEndDate = CommonUtil.inputWithOutEmpty("End Date");
                 LocalDate endDate = LocalDate.parse(stEndDate, CommonUtil.getDateFormat());
 
                 Booking booking = new Booking(bookingCode, startDate, endDate, customerCode, serviceCode);
@@ -60,9 +60,9 @@ public class BookingView {
                         String bookCode = booking.getCode();
                         String cusCode = booking.getCustomerCode();
                         System.out.println("Please create contract for " + bookCode);
-                        String code = CommonUtil.inputTo("Contract Code");
-                        double down = Double.parseDouble(CommonUtil.inputTo("Down Payment"));
-                        double total = Double.parseDouble(CommonUtil.inputTo("Total Payment"));
+                        String code = CommonUtil.inputWithOutEmpty("Contract Code");
+                        double down = CommonUtil.inputToDouble("Down Payment");
+                        double total = CommonUtil.inputToDouble("Total Payment");
 
                         Contract contract = new Contract(code, booking.getCode(), down, total, cusCode);
                         contractController.create(contract);
@@ -78,15 +78,15 @@ public class BookingView {
                 System.out.println("----- List contract ---");
                 contractController.findAll().forEach(System.out::println);
 
-                String code = CommonUtil.inputTo("Enter contract code to edit");
-                double down = Double.parseDouble(CommonUtil.inputTo("Down Payment"));
-                double total = Double.parseDouble(CommonUtil.inputTo("Total Payment"));
+                String code = CommonUtil.inputWithOutEmpty("Enter contract code to edit");
+                double down = CommonUtil.inputToDouble("Down Payment");
+                double total = CommonUtil.inputToDouble("Total Payment");
                 System.out.println("----- List customer ---");
                 customerController.findAll().forEach(System.out::println);
-                String cusCode = CommonUtil.inputTo("Enter customer code to booking");
+                String cusCode = CommonUtil.inputWithOutEmpty("Enter customer code to booking");
                 System.out.println("----- List booking ---");
                 bookingController.findAll().forEach(System.out::println);
-                String bookCode = CommonUtil.inputTo("Enter booking code to edit");
+                String bookCode = CommonUtil.inputWithOutEmpty("Enter booking code to edit");
                 Contract contract = new Contract(code, bookCode, down, total, cusCode);
                 contractController.update(contract);
                 System.out.println("Updated successfully!");

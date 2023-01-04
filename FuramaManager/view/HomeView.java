@@ -16,7 +16,7 @@ public class HomeView {
                 "5. Promotion Management\n" +
                 "6. Exit");
 
-        int choice= CommonUtil.getChoice();
+        int choice= CommonUtil.getChoice(1,6);
 
         switch (choice){
             case 1 -> EmployeeView.show();

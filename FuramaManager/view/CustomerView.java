@@ -17,13 +17,13 @@ public class CustomerView {
                 "3. Edit customer\n"+
                 "4. Return main menu");
 
-        int choice= CommonUtil.getChoice();
+        int choice= CommonUtil.getChoice(1,4);
         switch (choice) {
             case 1:
                 customerController.findAll().forEach(System.out::println);
                 break;
             case 2:
-                String code = CommonUtil.inputTo("Code");
+                String code = CommonUtil.inputWithOutEmpty("Code");
                 Customer newCustomer = input();
                 newCustomer.setCode(code);
                 customerController.create(newCustomer);
@@ -44,8 +44,8 @@ public class CustomerView {
 
     private static Customer input() {
         Person person = CommonUtil.inputPerson();
-        String typeCustomer = CommonUtil.inputTo("Type Customer");
+        TypeCustomer typeCustomer = CommonUtil.inputToEnum(TypeCustomer.class, "Type Customer");
 
-        return new Customer(person.getFullName(), person.getBirthday(), person.getGender(), person.getPhone(), person.getEmail(), person.getAddress(), TypeCustomer.valueOf(typeCustomer.toUpperCase()));
+        return new Customer(person.getFullName(), person.getBirthday(), person.getGender(), person.getPhone(), person.getEmail(), person.getAddress(), typeCustomer);
     }
 }

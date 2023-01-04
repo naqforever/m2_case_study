@@ -21,7 +21,7 @@ public class FacilityView {
                 "3. Display list facility maintenance\n"+
                 "4. Return main menu");
 
-        int choice= CommonUtil.getChoice();
+        int choice= CommonUtil.getChoice(1,4);
 
         switch (choice) {
             case 1 -> facilityController.findAll().forEach(System.out::println);
@@ -40,37 +40,37 @@ public class FacilityView {
         System.out.println("3. Add new room");
         System.out.println("4. Back to menu");
 
-        int choice= CommonUtil.getChoice();
+        int choice= CommonUtil.getChoice(1,4);
 
         if(choice == 4){
             show();
         }
         else{
-            String code = CommonUtil.inputTo("Code");
-            String name = CommonUtil.inputTo("Name");
-            double areaUsed = Double.parseDouble(CommonUtil.inputTo("Area Used"));
-            double price =  Double.parseDouble(CommonUtil.inputTo("Price"));
-            int maxPeople = Integer.parseInt(CommonUtil.inputTo("Max People"));
-            String rentType = CommonUtil.inputTo("Rent Type");
+            String code = CommonUtil.inputWithOutEmpty("Code");
+            String name = CommonUtil.inputWithOutEmpty("Name");
+            double areaUsed = Double.parseDouble(CommonUtil.inputWithOutEmpty("Area Used"));
+            double price =  Double.parseDouble(CommonUtil.inputWithOutEmpty("Price"));
+            int maxPeople = CommonUtil.inputToInteger("Max People");
+            String rentType = CommonUtil.inputWithOutEmpty("Rent Type");
 
             Facility facility = null;
-            String roomType;
+            RoomType roomType;
             int numberOfFloor;
 
             switch (choice) {
                 case 1 -> {
-                    roomType = CommonUtil.inputTo("Room Type");
-                    double areaPool =  Double.parseDouble(CommonUtil.inputTo("Area Pool"));
-                    numberOfFloor = Integer.parseInt(CommonUtil.inputTo("Number Of Floor"));
-                    facility = new Villa(code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()), RoomType.valueOf(roomType.toUpperCase()), areaPool, numberOfFloor);
+                    roomType = CommonUtil.inputToEnum(RoomType.class , "Room Type");
+                    double areaPool =  CommonUtil.inputToDouble("Area Pool");
+                    numberOfFloor = CommonUtil.inputToInteger("Number Of Floor");
+                    facility = new Villa(code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()), roomType, areaPool, numberOfFloor);
                 }
                 case 2 -> {
-                    roomType = CommonUtil.inputTo("Room Type");
-                    numberOfFloor = Integer.parseInt(CommonUtil.inputTo("Number Of Floor"));
-                    facility = new House( code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()),  RoomType.valueOf(roomType.toUpperCase()), numberOfFloor);
+                    roomType = CommonUtil.inputToEnum(RoomType.class , "Room Type");
+                    numberOfFloor = CommonUtil.inputToInteger("Number Of Floor");
+                    facility = new House( code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()),  roomType, numberOfFloor);
                 }
                 case 3 -> {
-                    String freeAttachService = CommonUtil.inputTo("Free Attach Service");
+                    String freeAttachService = CommonUtil.inputWithOutEmpty("Free Attach Service");
                     facility = new Room( code, name, areaUsed, price, maxPeople, RentType.valueOf(rentType.toUpperCase()), freeAttachService);
                 }
             }

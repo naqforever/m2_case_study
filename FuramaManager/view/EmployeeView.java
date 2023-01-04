@@ -4,7 +4,6 @@ import m2_case_study.FuramaManager.controller.EmployeeController;
 import m2_case_study.FuramaManager.model.Employee;
 import m2_case_study.FuramaManager.model.Person;
 import m2_case_study.FuramaManager.util.CommonUtil;
-import m2_case_study.FuramaManager.util.ConstantUtil.Gender;
 import m2_case_study.FuramaManager.util.ConstantUtil.Degree;
 import m2_case_study.FuramaManager.util.ConstantUtil.Position;
 
@@ -18,12 +17,12 @@ public class EmployeeView {
                     "3. Edit employee\n"+
                     "4. Return main menu");
 
-        int choice= CommonUtil.getChoice();
+        int choice= CommonUtil.getChoice(1,4);
 
         switch (choice) {
             case 1 -> employeeController.findAll().forEach(System.out::println);
             case 2 -> {
-                String code = CommonUtil.inputTo("Code");
+                String code = CommonUtil.inputWithOutEmpty("Code");
                 Employee newEmployee = input();
                 newEmployee.setCode(code);
                 employeeController.create(newEmployee);
@@ -43,10 +42,10 @@ public class EmployeeView {
 
     private static  Employee input() {
         Person person = CommonUtil.inputPerson();
-        String degree = CommonUtil.inputTo("Degree");
-        String position = CommonUtil.inputTo("Position");
-        double salary = Double.parseDouble(CommonUtil.inputTo("Salary"));
+        Degree degree = CommonUtil.inputToEnum(Degree.class,"Degree");
+        Position position = CommonUtil.inputToEnum(Position.class, "Position");
+        double salary = CommonUtil.inputToDouble("Salary");
 
-        return new Employee(person.getFullName(), person.getBirthday(), person.getGender(), person.getPhone(), person.getEmail(), person.getAddress(), Degree.valueOf(degree.toUpperCase()), Position.valueOf(position.toUpperCase()), salary);
+        return new Employee(person.getFullName(), person.getBirthday(), person.getGender(), person.getPhone(), person.getEmail(), person.getAddress(), degree, position, salary);
     }
 }
