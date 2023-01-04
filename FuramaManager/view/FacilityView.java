@@ -47,25 +47,24 @@ public class FacilityView {
         else{
 
             String code = CommonUtil.inputWithOutEmpty("Code");
-//            if(choice == 1){
-//                while (!Validation.isVilla(code)){
-//                    System.out.printf("Invalid format. Please input again\n");
-//                    code = CommonUtil.inputWithOutEmpty("Code");
-//                }
-//            }
-//            else if(choice == 2){
-//                while (!Validation.isHouse(code)){
-//                    System.out.printf("Invalid format. Please input again\n");
-//                    code = CommonUtil.inputWithOutEmpty("Code");
-//                }
-//            }
-//            else {
-//                while (!Validation.isRoom(code)){
-//                    System.out.printf("Invalid format. Please input again\n");
-//                    code = CommonUtil.inputWithOutEmpty("Code");
-//                }
-//            }
-
+            if(choice == 1){
+                while (!Validation.isVilla(code)){
+                    System.out.printf("Invalid format. Please input again\n");
+                    code = CommonUtil.inputWithOutEmpty("Code");
+                }
+            }
+            else if(choice == 2){
+                while (!Validation.isHouse(code)){
+                    System.out.printf("Invalid format. Please input again\n");
+                    code = CommonUtil.inputWithOutEmpty("Code");
+                }
+            }
+            else {
+                while (!Validation.isRoom(code)){
+                    System.out.printf("Invalid format. Please input again\n");
+                    code = CommonUtil.inputWithOutEmpty("Code");
+                }
+            }
 
             String name = CommonUtil.inputWithOutEmpty("Name");
             while (!Validation.isServiceName(name)){
